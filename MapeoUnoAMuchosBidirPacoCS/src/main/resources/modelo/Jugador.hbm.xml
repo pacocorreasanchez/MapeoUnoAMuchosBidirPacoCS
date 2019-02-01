@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="es.albarregas.beans.Jugador" table="jugadores">
+        
+        <id column="idJugador" name="idJugador">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="nombreJugador">
+            <column length="50" name="nombre" not-null="true" />
+        </property>
+        
+        <property name="dorsal">
+            <column name="dorsal" not-null="true" />
+        </property>
+	
+        <many-to-one name="equipo">                   
+            <column name="idEquipo"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
